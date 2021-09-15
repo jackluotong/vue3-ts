@@ -4,60 +4,24 @@
  * @Author: william
  * @Date: 2021-09-16 00:28:09
  * @LastEditors: william
- * @LastEditTime: 2021-09-16 00:35:02
+ * @LastEditTime: 2021-09-16 01:38:02
  * @For What?: 
 -->
+<style scoped></style>
+
 <script setup lang="ts">
 import { ref } from 'vue'
-
-defineProps<{ msg: string; testNumber: number }>()
+import { onBeforeMount } from 'vue'
+defineProps<{ msg: string; testNumber: string }>()
 
 const count = ref(0)
+onBeforeMount(() => {
+    console.log('onBeforeMount')
+})
 </script>
 
 <template>
     <h1>{{ msg }}</h1>
     <h2>{{ testNumber }}</h2>
-    <p>
-        Recommended IDE setup:
-        <a href="https://code.visualstudio.com/" target="_blank">VSCode</a>
-        +
-        <a href="https://github.com/johnsoncodehk/volar" target="_blank"
-            >Volar</a
-        >
-    </p>
-
-    <p>See <code>README.md</code> for more information.</p>
-
-    <p>
-        <a href="https://vitejs.dev/guide/features.html" target="_blank">
-            Vite Docs
-        </a>
-        |
-        <a href="https://v3.vuejs.org/" target="_blank">Vue 3 Docs</a>
-    </p>
-
     <button type="button" @click="count++">count is: {{ count }}</button>
-    <p>
-        Edit
-        <code>components/HelloWorld.vue</code> to test hot module replacement.
-    </p>
 </template>
-
-<style scoped>
-a {
-    color: #42b983;
-}
-
-label {
-    margin: 0 0.5em;
-    font-weight: bold;
-}
-
-code {
-    background-color: #eee;
-    padding: 2px 4px;
-    border-radius: 4px;
-    color: #304455;
-}
-</style>

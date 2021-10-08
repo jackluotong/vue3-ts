@@ -3,8 +3,8 @@
  * @version: 1.0.0
  * @Author: william
  * @Date: 2021-09-16 00:28:09
- * @LastEditors: william
- * @LastEditTime: 2021-09-16 00:35:36
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2021-10-08 18:05:54
  * @For What?: 
 -->
 <script setup lang="ts">
@@ -14,10 +14,9 @@ import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
-    <img alt="Vue logo" src="./assets/logo.png" /><HelloWorld
-        msg="Hello Vue 3 + TypeScript + Vite"
-        testNumber="11111"
-    ></HelloWorld>
+    <img alt="Vue logo" src="./assets/logo.png" />
+    <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" testNumber="11111">
+    </HelloWorld>
 </template>
 
 <style>

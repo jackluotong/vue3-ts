@@ -1,0 +1,51 @@
+<!--
+ * @Description: 
+ * @version: 1.0.0
+ * @Author: 
+ * @Date: 2021-10-08 18:18:39
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2021-10-08 18:30:14
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <canvas id='01' width="600" height="600"></canvas>
+    </div>
+    <script>
+    /**
+     * @name: 
+     * @test: 
+     * @msg: 
+     * @param {*width}
+     * @param {*height}
+     * @return {*square}
+     */        
+    function translate01(w){
+        /** @type {HTMLCanvasElement} */ 
+        let canvas=document.getElementById('01')
+        let ctx=canvas.getContext("2d")
+        ctx.save()
+        ctx.translate(100,100)
+        ctx.strokeRect(0,0,100,100)
+        ctx.restore()
+        ctx.translate(220,220)
+        ctx.fillRect(0,0,100,100)
+    }
+    translate01()
+    /**
+     * @name:function 
+     * @test: 
+     * @msg: translate rotate scale
+     * @param {*}
+     * @return {*}
+     */    
+    </script>
+</body>
+</html>

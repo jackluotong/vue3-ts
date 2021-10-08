@@ -1,0 +1,145 @@
+<!--
+ * @Description: 
+ * @version: 1.0.0
+ * @Author: 
+ * @Date: 2021-09-29 11:42:28
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2021-10-08 10:39:15
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Document</title>
+                </head>
+                <body>
+                    <div>
+                        <canvas id="one" width="800" height="800"></canvas>
+                        <canvas id="three" width="800" height="800"></canvas>
+                    </div>
+
+                    <script defer="defer">
+
+                        const drawOne = (function () {
+                            const canvas = document.getElementById('one')
+                            if (canvas.getContext) {
+                                const ctx = canvas.getContext('2d')
+                                ctx.beginPath()
+                                ctx.moveTo(75, 40)
+                                ctx.bezierCurveTo(75, 37, 70, 25, 50, 25)
+                                ctx.bezierCurveTo(20, 25, 20, 62.5, 20, 62.5);
+                                ctx.bezierCurveTo(20, 80, 40, 102, 75, 120);
+                                ctx.bezierCurveTo(110, 102, 130, 80, 130, 62.5);
+                                ctx.bezierCurveTo(130, 62.5, 130, 25, 100, 25);
+                                ctx.bezierCurveTo(85, 25, 75, 37, 75, 40);
+                                ctx.fill()
+                            }
+                        })()
+                        const drawTwo = (function () {
+                            const sun = new Image()
+                            const moon = new Image()
+                            const earth = new Image()
+                            function init() {
+                                sun.src = 'https://mdn.mozillademos.org/files/1456/Canvas_sun.png'
+                                moon.src = 'https://mdn.mozillademos.org/files/1443/Canvas_moon.png'
+                                earth.src = 'https://mdn.mozillademos.org/files/1429/Canvas_earth.png'
+                                window.requestAnimationFrame(draw)
+                            }
+                            function draw() {
+                                var ctx = document.getElementById('one').getContext('2d');
+                                ctx.globalCompositeOperation = 'destination-over';
+                                ctx.clearRect(0, 0, 300, 300); // clear canvas
+                                ctx.fillStyle = 'rgba(0,0,0,0.4)';
+                                ctx.strokeStyle = 'rgba(0,153,255,0.4)';
+                                ctx.save();
+                                ctx.translate(150, 150);
+
+                                // Earth
+                                var time = new Date();
+                                ctx.rotate(((2 * Math.PI) / 60) * time.getSeconds() + ((2 * Math.PI) / 60000) * time.getMilliseconds());
+                                ctx.translate(105, 0);
+                                ctx.fillRect(0, -12, 50, 24); // Shadow
+                                ctx.drawImage(earth, -12, -12);
+
+                                // Moon
+                                ctx.save();
+                                ctx.rotate(((2 * Math.PI) / 6) * time.getSeconds() + ((2 * Math.PI) / 6000) * time.getMilliseconds());
+                                ctx.translate(0, 28.5);
+                                ctx.drawImage(moon, -3.5, -3.5);
+                                ctx.restore();
+
+                                ctx.restore();
+
+                                ctx.beginPath();
+                                ctx.arc(150, 150, 105, 0, Math.PI * 2, false); // Earth orbit
+                                ctx.stroke();
+
+                                ctx.drawImage(sun, 0, 0, 300, 300);
+
+                                window.requestAnimationFrame(draw);
+                            }
+                        })()
+
+                        function drawThree() {
+                            var img = new Image();
+                            img.crossOrigin = ' ';
+                            img.src = '../../assets/1.png';
+                            console.log(img)
+                            /** @type {HTMLCanvasElement} */
+                            var canvas = document.getElementById('three');
+                            var ctx = canvas.getContext('2d');
+                            img.onload = function () {
+                                ctx.drawImage(img, 0, 0);
+                                img.style.display = 'none';
+                            };
+                            var hoveredColor = document.getElementById('hovered-color');
+                            var selectedColor = document.getElementById('selected-color');
+                            function pick(event, destination) {
+                                var x = event.layerX;
+                                var y = event.layerY;
+                                var pixel = ctx.getImageData(x, y, 1, 1);
+                                var data = pixel.data;
+
+                                const rgba = `rgba(${
+                                    data[0]
+                                }, ${
+                                    data[1]
+                                }, ${
+                                    data[2]
+                                }, ${
+                                    data[3] / 255
+                                })`;
+                                destination.style.background = rgba;
+                                destination.textContent = rgba;
+                                return rgba;
+                            }
+
+                            canvas.addEventListener('mousemove', function (event) {
+                                pick(event, hoveredColor);
+                            });
+                            canvas.addEventListener('click', function (event) {
+                                pick(event, selectedColor);
+                            });
+                        }
+                        drawThree()
+                        /**
+     * @name: web assembly
+     * @test: 出现原因：性能  1.请求： 体积小（二进制）2.解析：JavaScript 源码一旦被下载到浏览器，源将被解析为抽象语法树（AST）。
+     * 通常浏览器解析源码是懒惰的，浏览器首先会解析他们真正需要的东西，没有及时被调用的函数只会被创建成存根。
+     * 在这个过程中，AST被转换为该 JS 引擎的中间表示（称为字节码）。
+     * 相反，WebAssembly 不需要被转换，因为它已经是字节码了。它仅仅需要被解码并确定没有任何错误。
+     * 
+     * 
+     * 编程语言的翻译：解释器（一行一行即使生效） 编译器（执行前翻译）warm hot
+     * javascript的运行原理：
+     * web assembly：ALU Register RAM
+     * @msg: 
+     * @param {*}
+     * @return {*}
+     */
+                    </script>
+                </body>
+            </html>

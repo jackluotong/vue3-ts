@@ -4,7 +4,7 @@
  * @Author: william
  * @Date: 2021-10-11 16:18:25
  * @LastEditors: william
- * @LastEditTime: 2021-10-11 16:18:25
+ * @LastEditTime: 2021-10-11 16:31:59
  * @For What?: 
 -->
 ##
@@ -83,4 +83,6 @@
 	4.switchhosts
 	
 2021.10.11
-    1.
+    1.http-euqiv
+    2.bundle chunk module
+        module(源文件)<=chunk(打包中)>bundle(打包完)   

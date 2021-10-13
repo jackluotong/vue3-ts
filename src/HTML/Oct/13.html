@@ -1,0 +1,70 @@
+<!--
+ * @Description: 
+ * @version: 1.0.0
+ * @Author: william
+ * @Date: 2021-10-13 14:38:07
+ * @LastEditors: william
+ * @LastEditTime: 2021-10-13 17:47:53
+ * @For What?: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <button id="play">play</button>
+        <button id='stop'>stop</button>
+        <canvas id='canvas' height="800" width="800"></canvas>
+        <hr>
+        <canvas id='canvas1' height="300" width="300"></canvas>
+    </div>
+        <script>
+            let timer=null;
+            const drawImage=(function(){
+             /** @type {HTMLCanvasElement} */ 
+            let ctx=document.getElementById('canvas').getContext('2d')
+            console.log(ctx)
+            let img=new Image()
+            img.src='https://s3.bmp.ovh/imgs/2021/10/ee728f560675f816.jpg'
+            img.onload=function(){
+                ctx.drawImage(img,0,0)
+                }
+            })()
+
+            /**
+             * @name: add a video in canvas
+             * @test: 
+             * @msg: 
+             * @param {*}
+             * @return {*}
+             */            
+            const imgArray=['https://s3.bmp.ovh/imgs/2021/10/ee728f560675f816.jpg','https://s3.bmp.ovh/imgs/2021/10/823c40c09dbf420a.webp']
+            function videoPlay(){
+                /** @type {HTMLCanvasElement} */ 
+                var canvas = document.getElementById("canvas1");
+                var ctx = canvas.getContext("2d");
+                ctx.clearRect(0,0,300,300)
+                    for(let i=0;i<imgArray.length;i++){
+                        let img=new Image()
+                        img.src=imgArray[i]
+                        img.onload=function(){
+                            ctx.drawImage(img,0,0)
+                        }
+                    }
+            }
+            function stop(){
+                clearInterval(timer)
+                timer=null
+            }
+            document.getElementById('stop').addEventListener('click',stop)
+            window.onload=function(){
+                timer=setInterval(videoPlay,50)
+            }
+        </script>
+</body>
+</html>

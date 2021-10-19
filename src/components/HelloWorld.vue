@@ -4,10 +4,15 @@
  * @Author: william
  * @Date: 2021-09-16 00:28:09
  * @LastEditors: william
- * @LastEditTime: 2021-09-18 00:53:28
+ * @LastEditTime: 2021-10-19 19:03:19
  * @For What?: 
 -->
 <style scoped></style>
+<template>
+    <h1>{{ msg }}</h1>
+    <h2>{{ testNumber }}</h2>
+    <button type="button" @click="count++">count is: {{ count }}</button>
+</template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
@@ -20,12 +25,12 @@ onBeforeMount(() => {
         constructor(name: string) {
             this.name = name
         }
-        get(time: any) {
+        get() {
             return new Date()
         }
     }
     let a = new A('jack')
-    console.log(a, a.get(1))
+    console.log(a, a.get())
 })
 onMounted(() => {
     const hello: string = 'hello ts'
@@ -194,11 +199,10 @@ onMounted(() => {
         home.disp(),
         auth.str1
     )
+    let list: string[] = []
+    list.push('s')
+    let list1: Array<number> = [1, 2, 31, 1, 11]
+    let list2: [string, number]
+    console.log(list, '=======', list1[1], list2)
 })
 </script>
-
-<template>
-    <h1>{{ msg }}</h1>
-    <h2>{{ testNumber }}</h2>
-    <button type="button" @click="count++">count is: {{ count }}</button>
-</template>

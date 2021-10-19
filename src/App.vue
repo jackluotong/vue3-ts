@@ -4,7 +4,7 @@
  * @Author: william
  * @Date: 2021-09-16 00:28:09
  * @LastEditors: william
- * @LastEditTime: 2021-10-19 17:01:39
+ * @LastEditTime: 2021-10-19 18:58:50
  * @For What?: 
 -->
 <script setup lang="ts">
@@ -12,16 +12,16 @@
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
 import { onMounted } from 'vue'
 import HelloWorld from './components/HelloWorld.vue'
-const day: any = 1
+import Home from './components/Home.vue'
+const day = 1
 onMounted(() => {
-    console.log(onMounted)
+    console.log(day)
 })
 </script>
 
 <template>
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" testNumber="11111">
-    </HelloWorld>
+    <HelloWorld msg=" Vue 3 + TypeScript + Vite" testNumber="11111" />
+    <Home />
 </template>
 
 <style>

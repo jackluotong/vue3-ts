@@ -4,7 +4,7 @@
  * @Author: william
  * @Date: 2021-09-16 00:28:09
  * @LastEditors: william
- * @LastEditTime: 2021-10-19 19:03:19
+ * @LastEditTime: 2021-10-21 16:19:35
  * @For What?: 
 -->
 <style scoped></style>
@@ -19,6 +19,7 @@ import { ref } from 'vue'
 import { onBeforeMount, onMounted } from 'vue'
 defineProps<{ msg: string; testNumber: string }>()
 const count = ref(0)
+
 onBeforeMount(() => {
     class A {
         name: string
@@ -203,6 +204,6 @@ onMounted(() => {
     list.push('s')
     let list1: Array<number> = [1, 2, 31, 1, 11]
     let list2: [string, number]
-    console.log(list, '=======', list1[1], list2)
+    console.log(list, '=======', list1[1])
 })
 </script>

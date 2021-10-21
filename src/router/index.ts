@@ -9,11 +9,11 @@
  */
 import Vue from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
-import CONSTANTROUTER from '../config/routerConfig/constant'
+import {constantRoutes} from '../config/routerConfig/constant'
 const routerHistory = createWebHistory()
 
 const router = createRouter({
     history: routerHistory,
-    routes: CONSTANTROUTER
+    routes: constantRoutes
 })
 export default router({})

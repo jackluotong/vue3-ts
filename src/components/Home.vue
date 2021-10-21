@@ -4,7 +4,7 @@
  * @Author: william
  * @Date: 2021-10-19 17:26:55
  * @LastEditors: william
- * @LastEditTime: 2021-10-19 18:58:33
+ * @LastEditTime: 2021-10-21 16:34:49
  * @For What?: 
 -->
 <style scoped></style>
@@ -14,10 +14,31 @@
     </div>
 </template>
 <script lang="ts">
-import { onMounted } from 'vue'
-let list: number[] = [1, 2, 3, 4]
-onMounted(() => {
-    alert(1)
-    console.log(list)
-})
+import { onMounted, ref, onBeforeMount } from 'vue'
+const myMinxin = {
+    setup(props: any) {
+        onMounted(() => {
+            console.log('minxin mounted', props)
+        })
+    },
+}
+export default {
+    mixins: [myMinxin],
+    setup() {
+        const root = ref(null)
+        onMounted(() => {
+            console.log(root)
+        })
+        onBeforeMount(() => {
+            console.log('before mount')
+        })
+        return {
+            root,
+        }
+    },
+    data() {
+        return {}
+    },
+    methods: {},
+}
 </script>

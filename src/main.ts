@@ -4,9 +4,8 @@
  * @Author: william
  * @Date: 2021-10-19 11:14:43
  * @LastEditors: william
- * @LastEditTime: 2021-10-20 11:33:43
+ * @LastEditTime: 2021-10-22 17:36:30
  * @For What?: 
  */
-import { createApp } from 'vue'
-import App from './App.vue'
-createApp(App).mount('#app')
+import app  from './config/allConfig/app'
+    app.mount('#app')

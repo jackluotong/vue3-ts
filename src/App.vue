@@ -4,24 +4,19 @@
  * @Author: william
  * @Date: 2021-09-16 00:28:09
  * @LastEditors: william
- * @LastEditTime: 2021-10-19 18:58:50
+ * @LastEditTime: 2021-10-22 16:17:43
  * @For What?: 
 -->
 <script setup lang="ts">
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-import { onMounted } from 'vue'
-import HelloWorld from './components/HelloWorld.vue'
-import Home from './components/Home.vue'
-const day = 1
-onMounted(() => {
-    console.log(day)
-})
 </script>
 
 <template>
+    <router-view></router-view>
+    <!-- 
     <HelloWorld msg=" Vue 3 + TypeScript + Vite" testNumber="11111" />
-    <Home />
+    <Home /> -->
 </template>
 
 <style>

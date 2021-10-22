@@ -4,7 +4,7 @@
  * @Author: william
  * @Date: 2021-09-16 00:28:09
  * @LastEditors: william
- * @LastEditTime: 2021-10-21 16:19:35
+ * @LastEditTime: 2021-10-22 16:15:58
  * @For What?: 
 -->
 <style scoped></style>
@@ -16,7 +16,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { onBeforeMount, onMounted } from 'vue'
+import { onBeforeMount, onMounted, defineComponent } from 'vue'
 defineProps<{ msg: string; testNumber: string }>()
 const count = ref(0)
 
